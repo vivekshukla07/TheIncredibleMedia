@@ -1,0 +1,23 @@
+.eac-reader-progress .progress {
+	position: fixed;
+	top: 0;
+	width: 0%;
+	height: 5px;
+	z-index: 10000;
+	display: flex;
+	align-items: center;
+}
+
+.progress-left .eac-reader-progress .progress {
+	right: 0;
+}
+
+.progress-right .eac-reader-progress .progress {
+	left: 0;
+}
+
+.progress-right .eac-reader-progress .progress-badge,
+.progress-left .eac-reader-progress .progress-badge {
+	display: inline-block;
+	margin: 0 10px 0 10px;
+}

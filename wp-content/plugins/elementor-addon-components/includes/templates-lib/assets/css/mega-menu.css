@@ -1,0 +1,556 @@
+/** le composant et ses liens */
+.eac-mega-menu a,
+.eac-mega-menu a:visited,
+.eac-mega-menu a:active {
+	text-decoration: none !important;
+}
+
+.eac-mega-menu ul,
+.eac-mega-menu ol {
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+
+/** Le wrapper du menu */
+.eac-mega-menu {
+	display: block;
+	padding: 0;
+	clear: both;
+	z-index: 1000;
+}
+
+/** Le menu, le wrapper et les li de premier niveau en position relative */
+.eac-mega-menu,
+.mega-menu_nav-wrapper,
+.mega-menu_nav-wrapper .mega-menu_top-item,
+.mega-menu_nav-wrapper .mega-menu_sub-item {
+	position: relative;
+}
+
+/** Le mini-cart est caché pour les page cart et checkout */
+body.woocommerce-cart nav li#menu-item-mini-cart,
+body.woocommerce-checkout nav li#menu-item-mini-cart {
+	display: none;
+}
+
+/** le dernier item du menu est coupé */
+.eac-mega-menu.item_clipped {
+	overflow-x: clip;
+}
+
+.eac-mega-menu .menu-item-has-children>a {
+	background-color: unset;
+}
+
+/** Le wrapper du menu */
+.mega-menu_nav-wrapper {
+	display: block;
+}
+
+/** La dimension max du menu */
+.mega-menu_nav-wrapper:not(.breakpoint) .inside-container {
+	width: 100%;
+	margin: 0 auto;
+}
+
+div[class*="mega-menu_orientation-hrz"] .mega-menu_nav-wrapper .mega-menu_top-item {
+	line-height: var(--eac-hrz-top-item-line-height);
+}
+
+/** La balise 'ul' wrapper du menu */
+.mega-menu_nav-wrapper .mega-menu_nav-menu {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+/** Soulignement des items du menu */
+.mega-menu_nav-wrapper .mega-menu_nav-menu .mega-menu_top-item:hover:before,
+.mega-menu_nav-wrapper .mega-menu_nav-menu .mega-menu_top-item:focus-visible:before {
+	content: '';
+	display: block;
+	position: relative;
+	outline: 1px solid red;
+}
+
+/** Les liens parents et enfants */
+.mega-menu_nav-wrapper .mega-menu_nav-menu .mega-menu_top-link,
+.mega-menu_nav-wrapper .mega-menu_nav-menu .mega-menu_sub-link {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 10px;
+	width: 100%;
+	cursor: pointer;
+}
+
+.mega-menu_nav-menu>li>a>.mega-menu_item-title,
+.mega-menu_nav-menu>li>span>.mega-menu_item-title,
+.mega-menu_top-link i,
+.mega-menu_nav-menu>li>ul li a .mega-menu_item-title,
+.mega-menu_nav-menu>li>ul li span .mega-menu_item-title,
+.mega-menu_sub-link i,
+.mega-menu_nav-menu>li>ul li a:not(.remove_from_cart_button),
+.mega-menu_nav-menu .woocommerce-mini-cart .mini_cart_item .quantity,
+.mega-menu_nav-menu .woocommerce-mini-cart .mini_cart_item .product-title,
+.mega-menu_nav-menu .woocommerce-mini-cart .mini_cart_item .quantity .amount,
+.mega-menu_nav-menu .woocommerce-mini-cart__total.total,
+.mega-menu_nav-menu .woocommerce-mini-cart__total.total strong,
+.mega-menu_nav-menu .woocommerce-mini-cart__total.total .amount,
+.mega-menu_nav-menu .woocommerce-mini-cart__empty-message {
+	color: white;
+	font-size: 1em;
+}
+
+/** Le bouton SVG */
+.mega-menu_nav-wrapper .menu-item-has-children button {
+	position: relative;
+	padding: 0 5px;
+	margin: 0 5px;
+	line-height: 1.5;
+	cursor: pointer;
+	color: unset;
+	background-color: unset;
+	border: unset;
+	appearance: unset;
+	font-family: unset;
+	font-weight: unset;
+	text-transform: none;
+	font-size: unset;
+}
+
+.mega-menu_nav-wrapper .menu-item-has-children .icon-menu-toggle svg {
+	display: inline-block;
+	vertical-align: middle;
+	width: .8em;
+	height: auto;
+	fill: white;
+	transition: transform .3s ease-in-out;
+	transform-origin: center;
+}
+
+/** TODO supprimer avec le conteneur Button */
+.mega-menu_nav-wrapper .menu-item-has-children span.icon-menu-toggle svg {
+	margin: 0 5px;
+	line-height: 1.5;
+}
+
+/** Position par défaut des icones SVG. Initialisation obligatoire pour le JS getComputedStyle */
+.mega-menu_nav-wrapper .icon-menu-toggle svg {
+	transform: rotate(0deg);
+}
+
+/** Position par défaut des icones SVG des sous-menus */
+.mega-menu_nav-wrapper .menu-item-has-children .mega-menu_sub-menu .icon-menu-toggle svg {
+	transform: rotate(-90deg);
+}
+
+/** L'affichage du dernier item est inversé */
+.mega-menu_reverted-yes .mega-menu_nav-wrapper:not(.breakpoint) .mega-menu_top-item:last-child>.mega-menu_sub-menu {
+	left: unset;
+	right: 0;
+}
+
+.mega-menu_reverted-yes .mega-menu_nav-wrapper:not(.breakpoint) .mega-menu_top-item:last-child>.mega-menu_sub-menu .mega-menu_sub-item .mega-menu_sub-menu {
+	left: unset;
+	right: 100%;
+}
+
+/** Dernier item inversé SVG rotation défaut */
+.mega-menu_reverted-yes .mega-menu_nav-wrapper:not(.breakpoint) .mega-menu_top-item:last-child>.mega-menu_sub-menu .icon-menu-toggle svg {
+	transform: rotate(90deg);
+}
+
+/** Menu inversé et survol des sub items */
+.mega-menu_reverted-yes .mega-menu_nav-wrapper:not(.breakpoint) .mega-menu_top-item:last-child li.menu-item-has-children.mega-menu_sub-item:hover>.mega-menu_sub-link .icon-menu-toggle svg,
+.mega-menu_reverted-yes .mega-menu_nav-wrapper:not(.breakpoint) .mega-menu_top-item:last-child li.menu-item-has-children.mega-menu_sub-item:focus-visible>.mega-menu_sub-link .icon-menu-toggle svg,
+.mega-menu_reverted-yes .mega-menu_nav-wrapper:not(.breakpoint) .mega-menu_top-item:last-child li.menu-item-has-children.mega-menu_sub-item:focus-within>.mega-menu_sub-link .icon-menu-toggle svg {
+	transform: rotate(-90deg);
+}
+
+/** Survol des top items  */
+.mega-menu_nav-wrapper:not(.breakpoint) li.menu-item-has-children.mega-menu_top-item:hover>.mega-menu_top-link .icon-menu-toggle svg,
+.mega-menu_nav-wrapper:not(.breakpoint) li.menu-item-has-children.mega-menu_top-item:focus-visible>.mega-menu_top-link .icon-menu-toggle svg,
+.mega-menu_nav-wrapper:not(.breakpoint) li.menu-item-has-children.mega-menu_top-item:focus-within>.mega-menu_top-link .icon-menu-toggle svg {
+	transform: rotate(180deg);
+}
+
+/** Survol des sub items */
+.mega-menu_nav-wrapper:not(.breakpoint) li.menu-item-has-children.mega-menu_sub-item:hover>.mega-menu_sub-link .icon-menu-toggle svg,
+.mega-menu_nav-wrapper:not(.breakpoint) li.menu-item-has-children.mega-menu_sub-item:focus-visible>.mega-menu_sub-link .icon-menu-toggle svg,
+.mega-menu_nav-wrapper:not(.breakpoint) li.menu-item-has-children.mega-menu_sub-item:focus-within>.mega-menu_sub-link .icon-menu-toggle svg {
+	transform: rotate(90deg);
+}
+
+/** Menu vertical défaut et survol des top items  */
+.mega-menu_orientation-vrt .mega-menu_nav-wrapper .menu-item-has-children.mega-menu_top-item .icon-menu-toggle svg {
+	transform: rotate(-90deg);
+}
+
+.mega-menu_orientation-vrt .mega-menu_nav-wrapper:not(.breakpoint) li.menu-item-has-children.mega-menu_top-item:hover>.mega-menu_top-link .icon-menu-toggle svg,
+.mega-menu_orientation-vrt .mega-menu_nav-wrapper:not(.breakpoint) li.menu-item-has-children.mega-menu_top-item:focus-visible>.mega-menu_top-link .icon-menu-toggle svg,
+.mega-menu_orientation-vrt .mega-menu_nav-wrapper:not(.breakpoint) li.menu-item-has-children.mega-menu_top-item:focus-within>.mega-menu_top-link .icon-menu-toggle svg {
+	transform: rotate(90deg);
+}
+
+/** Disposition du Mega Menu  */
+.mega-menu_display-mega .mega-menu_nav-wrapper li .mega-menu_sub-menu {
+	display: none;
+	grid-auto-flow: column;
+	min-width: 100%;
+}
+
+.mega-menu_display-mega .mini-cart-product.mega-menu_sub-menu {
+	width: max-content;
+}
+
+.mega-menu_display-mega .mega-menu_nav-wrapper .mega-menu_sub-menu:not(.mini-cart-product) li {
+	white-space: nowrap;
+}
+
+/** La position des Items UL LI */
+.mega-menu_nav-wrapper .mega-menu_sub-menu {
+	position: absolute;
+	top: auto;
+}
+
+/** Survol des items */
+.mega-menu_nav-wrapper:not(.breakpoint) li.menu-item-has-children:hover>.mega-menu_sub-menu,
+.mega-menu_nav-wrapper:not(.breakpoint) li.menu-item-has-children:focus-visible>.mega-menu_sub-menu,
+.mega-menu_nav-wrapper:not(.breakpoint) li.menu-item-has-children:focus-within>.mega-menu_sub-menu {
+	display: grid;
+	animation: fade_in_show 0.3s;
+}
+
+@keyframes fade_in_show {
+	0% {
+		opacity: 0;
+		transform: scale(0)
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1)
+	}
+}
+
+/** Les sous-menus avec liens */
+.mega-menu_nav-wrapper .mega-menu_sub-item {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	line-height: var(--eac-hrz-sub-item-line-height);
+}
+
+.mega-menu_nav-wrapper .mega-menu_sub-item a.mega-menu_item-title,
+.mega-menu_nav-wrapper .mega-menu_sub-item span.mega-menu_item-title {
+	padding: 5px 0;
+}
+
+/** Disposition des sous-menus */
+.mega-menu_display-mega .menu-item-has-children.mega-menu_sub-item .mega-menu_sub-menu,
+.mega-menu_display-default .menu-item-has-children.mega-menu_sub-item .mega-menu_sub-menu {
+	position: absolute;
+	left: 100%;
+}
+
+.mega-menu_display-default .menu-item-has-children.mega-menu_sub-item {
+	flex-direction: row;
+}
+
+/** Menu n'est pas collapsed */
+.mega-menu_collapse-no .mega-menu_top-item .mega-menu_sub-menu,
+.mega-menu_collapse-no .mega-menu_sub-item .mega-menu_sub-menu {
+	display: grid;
+}
+
+.mega-menu_collapse-yes .mega-menu_top-item .mega-menu_sub-menu,
+.mega-menu_collapse-yes .mega-menu_sub-item .mega-menu_sub-menu {
+	display: none;
+}
+
+/** Les boutons Menu/Close */
+.eac-mega-menu .mega-menu_nav-toggle.mega-menu_flyout-open,
+.eac-mega-menu .mega-menu_nav-toggle.mega-menu_flyout-close {
+	display: none;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0;
+	line-height: var(--eac-hrz-top-item-line-height);
+}
+
+.eac-mega-menu .mega-menu_nav-toggle.mega-menu_flyout-close {
+	border-bottom: 1px solid red;
+}
+
+.eac-mega-menu .mega-menu_nav-toggle.mega-menu_flyout-open .mega-menu_menu-icon,
+.eac-mega-menu .mega-menu_nav-toggle.mega-menu_flyout-close .mega-menu_menu-icon {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.eac-mega-menu .mega-menu_nav-toggle.mega-menu_flyout-open .mega-menu_menu-icon,
+.eac-mega-menu .mega-menu_nav-toggle.mega-menu_flyout-close .mega-menu_menu-icon,
+.eac-mega-menu .mega-menu_nav-toggle .toggle-menu {
+	cursor: pointer;
+}
+
+.eac-mega-menu .mega-menu_nav-toggle .toggle-menu {
+	display: inline-block;
+	margin-left: 5px;
+}
+
+.eac-mega-menu .mega-menu_nav-toggle .mega-menu_menu-icon i,
+.eac-mega-menu .mega-menu_nav-toggle .toggle-menu {
+	font-size: 1em;
+}
+
+/** Breakpoint */
+.mega-menu_nav-wrapper.breakpoint {
+	margin: 0 auto;
+	display: none;
+}
+
+.mega-menu_nav-wrapper.breakpoint .mega-menu_sub-item {
+	flex-direction: column;
+}
+
+div[class*="mega-menu_orientation-hrz"] .mega-menu_nav-wrapper.breakpoint .mega-menu_top-item {
+	line-height: var(--eac-hrz-top-item-breakpoint-line-height);
+}
+
+.mega-menu_orientation-vrt .mega-menu_nav-wrapper.breakpoint,
+.mega-menu_orientation-vrt .mega-menu_nav-wrapper.breakpoint .mega-menu_top-item,
+.mega-menu_orientation-vrt .mega-menu_nav-wrapper.breakpoint .mega-menu_sub-item {
+	width: 100% !important;
+}
+
+.mega-menu_orientation-vrt .mega-menu_nav-wrapper.breakpoint .mega-menu_sub-item {
+	line-height: var(--eac-vrt-sub-item-breakpoint-line-height) !important;
+}
+
+.mega-menu_nav-wrapper.breakpoint .mega-menu_nav-menu {
+	display: block;
+	height: auto !important;
+}
+
+.mega-menu_nav-wrapper.breakpoint .inside-navigation.inside-container {
+	width: 100%;
+	display: block;
+}
+
+.mega-menu_nav-wrapper.breakpoint .menu-item-has-children>.mega-menu_sub-menu {
+	position: relative;
+	left: 0 !important;
+	display: none;
+	width: 100% !important;
+}
+
+.mega-menu_nav-wrapper.breakpoint #menu-item-mini-cart .eac-shopping-cart i {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+/** Le badge du mini cart responsive */
+.mega-menu_nav-wrapper.breakpoint #menu-item-mini-cart .badge-cart__quantity {
+	top: 20px;
+	right: 12px;
+}
+
+/** Orientation verticale */
+.mega-menu_orientation-vrt .mega-menu_nav-wrapper .mega-menu_top-item {
+	line-height: var(--eac-vrt-top-item-line-height);
+}
+
+.mega-menu_orientation-vrt .mega-menu_nav-wrapper .menu-item-has-children .mega-menu_sub-item {
+	line-height: var(--eac-vrt-sub-item-line-height);
+}
+
+.mega-menu_orientation-vrt .mega-menu_nav-wrapper .mega-menu_top-item .mega-menu_sub-menu,
+.mega-menu_orientation-vrt .mega-menu_nav-wrapper .mega-menu_sub-item .mega-menu_sub-menu {
+	left: 100%;
+}
+
+/** Mini cart orientation verticale */
+.mega-menu_orientation-vrt .mega-menu_nav-wrapper:not(.breakpoint) #menu-item-mini-cart .badge-cart__quantity {
+	top: 50%;
+	right: 5px;
+	transform: translateY(-50%);
+}
+
+.mega-menu_orientation-vrt .mega-menu_nav-menu {
+	flex-direction: column;
+	align-items: flex-start;
+	height: auto;
+}
+
+.mega-menu_orientation-vrt .mega-menu_nav-menu .mega-menu_top-item,
+.mega-menu_orientation-vrt .mega-menu_nav-menu .mega-menu_sub-item {
+	justify-content: space-between;
+}
+
+.mega-menu_orientation-vrt .mega-menu_nav-menu .mega-menu_top-item .mega-menu_sub-menu,
+.mega-menu_orientation-vrt .mega-menu_nav-menu .mega-menu_sub-item .mega-menu_sub-menu {
+	top: 0;
+}
+
+/** Mini cart */
+/** Cache l'item lorsque le menu est affiché dans une widget sidebar ou off canvas menu */
+aside #menu-item-mini-cart,
+.widget-area .widget #menu-item-mini-cart,
+.eac-off-canvas .oc-offcanvas__menu-wrapper #menu-item-mini-cart {
+	display: none;
+}
+
+#menu-item-mini-cart .widget {
+	margin: unset;
+	padding: unset;
+	width: 100%;
+}
+
+#menu-item-mini-cart .widget ul li a {
+	padding: 0;
+}
+
+#menu-item-mini-cart .badge-cart__quantity {
+	display: inline-flex;
+	align-items: center;
+	justify-content: space-around;
+	position: absolute;
+	top: 10%;
+	right: 0;
+	color: white;
+	background-color: red;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	z-index: 2;
+	font-size: 12px;
+	font-weight: 900;
+}
+
+#menu-item-mini-cart .widgettitle {
+	display: none;
+}
+
+#menu-item-mini-cart .woocommerce-mini-cart__total,
+#menu-item-mini-cart .woocommerce-mini-cart__buttons {
+	padding: 0;
+}
+
+#menu-item-mini-cart .woocommerce-mini-cart .mini_cart_item {
+	line-height: 1.2em;
+}
+
+#menu-item-mini-cart .mega-menu_sub-menu {
+	padding: 5px;
+}
+
+#menu-item-mini-cart .woocommerce-mini-cart__buttons {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 0;
+	grid-column-gap: 0;
+}
+
+#menu-item-mini-cart .woocommerce-mini-cart__buttons .button {
+	font-size: .85em;
+	font-weight: unset;
+	background-color: white;
+	color: black;
+	text-align: center;
+	padding: 0.2em 1em;
+	line-height: 2em;
+	margin: 0 5px 5px 0;
+	white-space: nowrap;
+	letter-spacing: unset !important;
+	float: none !important;
+	text-transform: none;
+}
+
+.mega-menu_nav-wrapper .mega-menu_item-title,
+#menu-item-mini-cart .woocommerce-mini-cart .mini_cart_item a:not(.remove_from_cart_button),
+#menu-item-mini-cart .woocommerce-mini-cart .mini_cart_item .quantity,
+#menu-item-mini-cart .woocommerce-mini-cart .mini_cart_item .product-title,
+#menu-item-mini-cart .woocommerce-mini-cart .mini_cart_item .quantity .amount,
+#menu-item-mini-cart .woocommerce-mini-cart__total,
+#menu-item-mini-cart .woocommerce-mini-cart__total strong,
+#menu-item-mini-cart .woocommerce-mini-cart__total .amount,
+#menu-item-mini-cart .woocommerce-mini-cart__empty-message {
+	font-weight: inherit;
+}
+
+#menu-item-mini-cart .woocommerce-mini-cart .mini_cart_item .quantity {
+	margin: 0;
+}
+
+#menu-item-mini-cart .woocommerce-mini-cart__total {
+	margin-top: .5em;
+	margin-bottom: .5em;
+	text-align: center;
+	line-height: 2em;
+	padding: 10px;
+	display: block;
+	border-top: 3px double white;
+}
+
+#menu-item-mini-cart .woocommerce-mini-cart__total strong,
+#menu-item-mini-cart .woocommerce-mini-cart__total .amount {
+	line-height: unset;
+	letter-spacing: unset;
+	float: none;
+}
+
+/** Fixed menu class */
+.eac-mega-menu.menu-fixed {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	animation: slideDown 0.35s ease-out;
+}
+
+@keyframes slideDown {
+	from {
+		transform: translateY(-100%);
+	}
+
+	to {
+		transform: translateY(0);
+	}
+}
+
+/** Certains thèmes définissent les listes */
+.mega-menu_nav-wrapper ul li,
+.mega-menu_nav-wrapper ol li,
+header.eac-site-header {
+	margin: 0 !important;
+	padding-bottom: 0;
+}
+
+/** Certains thèmes définissent des trucs bizarres
+.mega-menu_nav-wrapper .menu-item-has-children button
+*/
+.mega-menu_nav-wrapper ul li .dropdown-symbol,
+.mega-menu_nav-wrapper ol li .dropdown-symbol,
+header.eac-site-header .dropdown-symbol,
+.mega-menu_nav-wrapper .mega-menu_top-item a.mega-menu_item-title svg,
+.mega-menu_nav-wrapper .mega-menu_top-item span.mega-menu_item-title svg,
+.mega-menu_nav-wrapper .mega-menu_top-item button.ast-menu-toggle,
+.mega-menu_nav-wrapper .mini-cart-product.mega-menu_sub-menu .ast-mini-cart-empty {
+	display: none !important;
+}
+
+/** Theme Blocksy */
+.ct-elementor-default-template .elementor-top-section:not(.ct-section-stretched):not(.elementor-sticky) {
+	width: unset !important;
+	max-width: unset !important;
+}
